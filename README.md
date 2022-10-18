@@ -1,5 +1,5 @@
 
-> Open this page at [https://bhoflack.github.io/pokemon-go-client/](https://bhoflack.github.io/pokemon-go-client/)
+> Open this page at [https://melexis-stem.github.io/pokemon-go-client/](https://melexis-stem.github.io/pokemon-go-client/)
 
 ## Use as Extension
 
@@ -8,22 +8,22 @@ This repository can be added as an **extension** in MakeCode.
 * open [https://makecode.microbit.org/](https://makecode.microbit.org/)
 * click on **New Project**
 * click on **Extensions** under the gearwheel menu
-* search for **https://github.com/bhoflack/pokemon-go-client** and import
+* search for **https://github.com/melexis-stem/pokemon-go-client** and import
 
-## Edit this project ![Build status badge](https://github.com/bhoflack/pokemon-go-client/workflows/MakeCode/badge.svg)
+## Edit this project ![Build status badge](https://github.com/melexis-stem/pokemon-go-client/workflows/MakeCode/badge.svg)
 
 To edit this repository in MakeCode.
 
 * open [https://makecode.microbit.org/](https://makecode.microbit.org/)
 * click on **Import** then click on **Import URL**
-* paste **https://github.com/bhoflack/pokemon-go-client** and click import
+* paste **https://github.com/melexis-stem/pokemon-go-client** and click import
 
 ## Blocks preview
 
 This image shows the blocks code from the last commit in master.
 This image may take a few minutes to refresh.
 
-![A rendered view of the blocks](https://github.com/bhoflack/pokemon-go-client/raw/master/.github/makecode/blocks.png)
+![A rendered view of the blocks](https://github.com/melexis-stem/pokemon-go-client/raw/master/.github/makecode/blocks.png)
 
 #### Metadata (used for search, rendering)
 
