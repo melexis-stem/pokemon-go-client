@@ -1,6 +1,6 @@
 function toon_pokemon (pokemon: string) {
     if (pokemon == "charmander") {
-        music.playSoundEffect(music.createSoundEffect(WaveShape.Square, 200, 1, 255, 0, 1000, SoundExpressionEffect.None, InterpolationCurve.Curve), SoundExpressionPlayMode.InBackground)
+        music.playSoundEffect(music.createSoundEffect(WaveShape.Square, 200, 1, 255, 0, 1000, SoundExpressionEffect.None, InterpolationCurve.Curve), SoundExpressionPlayMode.UntilDone)
         basic.showLeds(`
             . . # . .
             . # # # .
@@ -22,9 +22,8 @@ function toon_pokemon (pokemon: string) {
             . . # # .
             . . # . .
             `)
-        basic.showIcon(IconNames.Ghost)
     } else if (pokemon == "pikachu") {
-        music.playSoundEffect(music.createSoundEffect(WaveShape.Noise, 500, 499, 255, 0, 750, SoundExpressionEffect.None, InterpolationCurve.Linear), SoundExpressionPlayMode.InBackground)
+        music.playSoundEffect(music.createSoundEffect(WaveShape.Noise, 500, 499, 255, 0, 750, SoundExpressionEffect.None, InterpolationCurve.Linear), SoundExpressionPlayMode.UntilDone)
         basic.showLeds(`
             . . # . .
             . . . # .
@@ -46,8 +45,22 @@ function toon_pokemon (pokemon: string) {
             . # # # .
             # . # . #
             `)
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . # # # .
+            # . # . #
+            `)
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            # . # . #
+            `)
     } else if (pokemon == "bulbasaur") {
-        music.playSoundEffect(music.createSoundEffect(WaveShape.Noise, 523, 1, 255, 0, 1000, SoundExpressionEffect.Warble, InterpolationCurve.Logarithmic), SoundExpressionPlayMode.InBackground)
+        music.playSoundEffect(music.createSoundEffect(WaveShape.Noise, 523, 1, 255, 0, 1000, SoundExpressionEffect.Warble, InterpolationCurve.Logarithmic), SoundExpressionPlayMode.UntilDone)
         basic.showLeds(`
             . . . # #
             . # # . #
@@ -63,7 +76,7 @@ function toon_pokemon (pokemon: string) {
             # . . . .
             `)
     } else if (pokemon == "squirtle") {
-        music.playSoundEffect(music.createSoundEffect(WaveShape.Sine, 200, 600, 255, 0, 750, SoundExpressionEffect.None, InterpolationCurve.Linear), SoundExpressionPlayMode.InBackground)
+        music.playSoundEffect(music.createSoundEffect(WaveShape.Triangle, 1606, 1943, 186, 0, 1000, SoundExpressionEffect.None, InterpolationCurve.Logarithmic), SoundExpressionPlayMode.UntilDone)
         basic.showLeds(`
             . . . . .
             . . . . .
@@ -85,9 +98,19 @@ function toon_pokemon (pokemon: string) {
             # . . . #
             # # # # #
             `)
+    } else if (pokemon == "voltorb") {
+        music.playSoundEffect(music.createSoundEffect(WaveShape.Noise, 500, 1, 255, 0, 1000, SoundExpressionEffect.None, InterpolationCurve.Linear), SoundExpressionPlayMode.UntilDone)
+        basic.showLeds(`
+            . . # . .
+            . # # # .
+            # # # . #
+            . # . # .
+            . . # . .
+            `)
     } else {
         basic.showString(pokemon)
     }
+    basic.clearScreen()
 }
 radio.onReceivedString(function (receivedString) {
     gevonden_pokemon = receivedString
