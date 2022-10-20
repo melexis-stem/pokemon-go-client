@@ -112,13 +112,6 @@ function toon_pokemon (pokemon: string) {
     }
     basic.clearScreen()
 }
-radio.onReceivedString(function (receivedString) {
-    gevonden_pokemon = receivedString
-    if (radio.receivedPacket(RadioPacketProperty.SignalStrength) > -45) {
-        vang_nieuwe_pokemon(gevonden_pokemon, team)
-    }
-    basic.clearScreen()
-})
 function vang_nieuwe_pokemon (nieuwe_pokemon: string, pokemons: string[]) {
     if (pokemons.indexOf(nieuwe_pokemon) == -1) {
         toon_pokemon(nieuwe_pokemon)
@@ -127,13 +120,3 @@ function vang_nieuwe_pokemon (nieuwe_pokemon: string, pokemons: string[]) {
         pokemons.push(nieuwe_pokemon)
     }
 }
-input.onButtonPressed(Button.B, function () {
-    for (let waarde of team) {
-        toon_pokemon(waarde)
-    }
-    basic.clearScreen()
-})
-let gevonden_pokemon = ""
-let team: string[] = []
-radio.setGroup(1)
-team = ["pikachu"]
