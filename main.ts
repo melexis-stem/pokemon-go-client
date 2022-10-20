@@ -1,33 +1,122 @@
-function displayPokemon (pokemon: string) {
+function toon_pokemon (pokemon: string) {
     if (pokemon == "charmander") {
-        basic.showIcon(IconNames.Ghost)
+        music.playSoundEffect(music.createSoundEffect(WaveShape.Square, 200, 1, 255, 0, 1000, SoundExpressionEffect.None, InterpolationCurve.Curve), SoundExpressionPlayMode.UntilDone)
+        basic.showLeds(`
+            . . # . .
+            . # # # .
+            . # # . .
+            . . # # .
+            . . # . .
+            `)
+        basic.showLeds(`
+            . . # . .
+            . # # . .
+            . # # . .
+            . # # # .
+            . . # . .
+            `)
+        basic.showLeds(`
+            . . . . .
+            . # . . .
+            . # # . .
+            . . # # .
+            . . # . .
+            `)
     } else if (pokemon == "pikachu") {
-        basic.showIcon(IconNames.Rollerskate)
+        music.playSoundEffect(music.createSoundEffect(WaveShape.Noise, 500, 499, 255, 0, 750, SoundExpressionEffect.None, InterpolationCurve.Linear), SoundExpressionPlayMode.UntilDone)
+        basic.showLeds(`
+            . . # . .
+            . . . # .
+            . . # . .
+            . . # . .
+            . . . . .
+            `)
+        basic.showLeds(`
+            . . # . .
+            . . . # .
+            . . # . .
+            . # # . .
+            # . # . .
+            `)
+        basic.showLeds(`
+            . . . . .
+            . . . # .
+            . . # . .
+            . # # # .
+            # . # . #
+            `)
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . # # # .
+            # . # . #
+            `)
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            # . # . #
+            `)
     } else if (pokemon == "bulbasaur") {
-        basic.showIcon(IconNames.Rabbit)
+        music.playSoundEffect(music.createSoundEffect(WaveShape.Noise, 523, 1, 255, 0, 1000, SoundExpressionEffect.Warble, InterpolationCurve.Logarithmic), SoundExpressionPlayMode.UntilDone)
+        basic.showLeds(`
+            . . . # #
+            . # # . #
+            . # . # #
+            . # # # .
+            # . . . .
+            `)
+        basic.showLeds(`
+            . . . # #
+            . # # # #
+            . # # # #
+            . # # # .
+            # . . . .
+            `)
+    } else if (pokemon == "squirtle") {
+        music.playSoundEffect(music.createSoundEffect(WaveShape.Triangle, 1606, 1943, 186, 0, 1000, SoundExpressionEffect.None, InterpolationCurve.Logarithmic), SoundExpressionPlayMode.UntilDone)
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . # . .
+            . . . . .
+            . . . . .
+            `)
+        basic.showLeds(`
+            . . . . .
+            . # # # .
+            . # . # .
+            . # # # .
+            . . . . .
+            `)
+        basic.showLeds(`
+            # # # # #
+            # . . . #
+            # . . . #
+            # . . . #
+            # # # # #
+            `)
+    } else if (pokemon == "voltorb") {
+        music.playSoundEffect(music.createSoundEffect(WaveShape.Noise, 500, 1, 255, 0, 1000, SoundExpressionEffect.None, InterpolationCurve.Linear), SoundExpressionPlayMode.UntilDone)
+        basic.showLeds(`
+            . . # . .
+            . # # # .
+            # # # . #
+            . # . # .
+            . . # . .
+            `)
     } else {
         basic.showString(pokemon)
     }
+    basic.clearScreen()
 }
-radio.onReceivedString(function (receivedString) {
-    pokemon2 = receivedString
-    if (radio.receivedPacket(RadioPacketProperty.SignalStrength) > -45) {
-        if (pokemons.indexOf(pokemon2) == -1) {
-            displayPokemon(pokemon2)
-            control.waitForEvent(EventBusValue.MICROBIT_BUTTON_EVT_DOWN, EventBusSource.MICROBIT_ID_BUTTON_AB)
-            basic.showIcon(IconNames.Heart)
-            pokemons.push(pokemon2)
-        }
+function vang_nieuwe_pokemon (nieuwe_pokemon: string, pokemons: string[]) {
+    if (pokemons.indexOf(nieuwe_pokemon) == -1) {
+        toon_pokemon(nieuwe_pokemon)
+        control.waitForEvent(EventBusValue.MICROBIT_BUTTON_EVT_DOWN, EventBusSource.MICROBIT_ID_BUTTON_AB)
+        basic.showIcon(IconNames.Heart)
+        pokemons.push(nieuwe_pokemon)
     }
-    basic.clearScreen()
-})
-input.onButtonPressed(Button.B, function () {
-    for (let waarde of pokemons) {
-        displayPokemon(waarde)
-    }
-    basic.clearScreen()
-})
-let pokemon2 = ""
-let pokemons: string[] = []
-radio.setGroup(1)
-pokemons = ["pikachu"]
+}
